@@ -251,8 +251,8 @@ class Issue(Result):
                  trace,
                  severity=None,
                  customfields=None):
-        if cwe is not None:
-            assert isinstance(cwe, int)
+        # if cwe is not None:
+        #     assert isinstance(cwe, int)
         if testid is not None:
             assert isinstance(testid, _string_type)
         assert isinstance(location, Location)
