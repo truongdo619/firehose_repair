@@ -277,8 +277,8 @@ class Issue(Result):
     @classmethod
     def from_xml(cls, node):
         cwe = node.get('cwe')
-        if cwe is not None:
-            cwe = int(cwe)
+        # if cwe is not None:
+        #      = int(cwe)cwe
         testid = node.get('test-id')
         location = Location.from_xml(node.find('location'))
         message = Message.from_xml(node.find('message'))
