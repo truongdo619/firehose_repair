@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!--
+    Copyright 2013 David Malcolm <dmalcolm@redhat.com>
+    Copyright 2013 Red Hat, Inc.
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301
+    USA
+-->
+<analysis>
+  <metadata>
+    <generator name="cpychecker"/>
+  </metadata>
+  <results>
+    <!--
+       Example of a failure-to-analyze in which we have an error message
+       and a location, but other failure fields (stdout, returncode)
+       wouldn't make sense and so are omitted.
+
+       The error message is a warning from cpychecker that the results
+       are only a partial analysis; it's not achieving full coverage.
+
+       (this was added to cpychecker in:
+          http://git.fedorahosted.org/cgit/gcc-python-plugin.git/commit/?h=firehose&id=1fbb678bb121099a8161031aae9e39c75e3faea7 )
+    -->
+    <failure failure-id="too-complicated">
+      <location>
+        <file given-path="tests/cpychecker/refcounts/combinatorial-explosion/input.c"/>
+        <function name="test_adding_module_objects"/>
+        <point column="1" line="31"/>
+      </location>
+      <message>this function is too complicated for the reference-count checker to fully analyze: not all paths were analyzed</message>
+    </failure>
+  </results>
+</analysis>

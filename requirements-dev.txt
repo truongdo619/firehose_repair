@@ -1,0 +1,4 @@
+nose
+mock
+# libxml2-utils
+sphinx

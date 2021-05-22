@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2013 David Malcolm <dmalcolm@redhat.com>
+    Copyright 2013 Red Hat, Inc.
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301
+    USA
+-->
+<analysis>
+  <metadata>
+    <generator name="cpychecker" version="0.11"/>
+    <sut>
+      <source-rpm name="python-ethtool" version="0.7" release="4.fc19" build-arch="x86_64"/>
+    </sut>
+    <file given-path="wspy_register.c">
+      <hash alg="sha1" hexdigest="6ba29daa94d64b48071e299a79f2a00dcd99eeb1"/>
+    </file>
+    <stats wall-clock-time="5"/>
+  </metadata>
+
+  <results>
+    <!-- Example of an analysis failure where we have a traceback
+         and the location of the code that broke the checker: -->
+    <failure failure-id="python-exception">
+      <location>
+        <file given-path="wspy_register.c"/>
+        <function name="register_all_py_protocols_func"/>
+        <point line="159" column="42"/>
+      </location>
+      <custom-fields>
+        <str-field name="traceback">wspy_register.c: In function 'register_all_py_protocols_func':
+wspy_register.c:159:42: error: Unhandled Python exception raised calling 'execute' method
+Traceback (most recent call last):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/__init__.py", line 75, in execute
+    self._check_refcounts(fun)
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/__init__.py", line 79, in _check_refcounts
+    self.show_possible_null_derefs)
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/refcounts.py", line 3668, in check_refcounts
+    limits=limits)
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2929, in iter_traces
+    depth + 1):
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2893, in iter_traces
+    transitions = curstate.get_transitions()
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2013, in get_transitions
+    return self._get_transitions_for_stmt(stmt)
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2029, in _get_transitions_for_stmt
+    return self._get_transitions_for_GimpleCall(stmt)
+  File "/usr/lib/gcc/x86_64-redhat-linux/4.6.2/plugin/python2/libcpychecker/absinterp.py", line 2212, in _get_transitions_for_GimpleCall
+    raise NotImplementedError('not yet implemented: %s' % fnname)
+NotImplementedError: not yet implemented: PySequence_Check
+</str-field></custom-fields>
+    </failure>
+  </results>
+</analysis>
